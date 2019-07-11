@@ -1,0 +1,45 @@
+.Player {
+    display:flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    border: 5px solid #000;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100px;
+    margin-bottom: 5px;
+}    
+.Player__name {
+    display:flex;
+    border: 1px solid white;
+    width: 60%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Player__score {
+    display:flex;
+    border: 1px solid white;
+    height: 100px;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Player__button {
+    display:flex;
+    border: 1px solid white;
+    height: 100px;
+    width: 10%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus {
+    background-color: #58b354 ;
+}
+.minus {
+    background-color: cornflowerblue;
+}

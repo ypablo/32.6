@@ -1,11 +1,17 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
+import PlayersList from './PlayersList'
 
 it('renders without crashing', () => {
-  //const div = document.createElement('div');
-  //ReactDOM.render(<App />, div);
-  //ReactDOM.unmountComponentAtNode(div);
   shallow(<App />);
+});
+
+it('should update player score', () => {
+  const appComponent = shallow(<App />);
+  const players = [];
+  appComponent.setState({ players });
+  const onScoreUpdate = appComponent.find(PlayersList).prop('onScoreUpdate');
+  const playersAfterUpdate = appComponent.state('players');
+  expect(onScoreUpdate).toEqual(playersAfterUpdate[0]);
 });
