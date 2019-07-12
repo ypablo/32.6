@@ -43,11 +43,14 @@ class App extends Component {
   }
 
   RemovePlayer = (playerIndex) => {
+    console.log("start ", this.state.players)
     this.setState({
-      players: this.state.players.filter(index => {
+      players: this.state.players.filter(function (item, index) {
+        console.log(item, index, playerIndex);
         return index !== playerIndex;
       })
     })
+    console.log("stop")
   }
 
   render() {
