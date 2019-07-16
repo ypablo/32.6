@@ -47,16 +47,14 @@ it('renders correct use onScoreUpdate', () => {
     expect(mockedOnScoreUpdate).toBeCalledWith(0, 10);
 });
 
+
 it('renders correct use onPlayerRemove', () => {
     const players = [
         {
             name: 'Kunegunda',
             score: 5
         },
-        {
-            name: 'Antoś',
-            score: 0
-        }
+
     ]
     const mockedOnPlayerRemove = jest.fn();
 
@@ -65,5 +63,5 @@ it('renders correct use onPlayerRemove', () => {
 
     const expectedPlayersNumber = playerComponent.find(Player).length;
 
-    expect(expectedPlayersNumber).toBeCalledWith(0, 10);
+    expect(expectedPlayersNumber).toEqual(1);
 });
