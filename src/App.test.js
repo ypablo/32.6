@@ -10,13 +10,12 @@ it('renders without crashing', () => {
 
 it('should update player score', () => {
   const appComponent = shallow(<App />);
-  const players = [];
-  appComponent.setState({ players });
-  const onScoreUpdate = appComponent.find(PlayersList).prop('onScoreUpdate');
-
+  const players = appComponent.state('players');
+  const onScoreUpdate = appComponent.find(PlayersList).prop('onScoreUpdate')
+  onScoreUpdate(0, 25);
   const playersAfterUpdate = appComponent.state('players');
-  //expect(playersAfterUpdate.score).toEqual(onScoreUpdate)
-  playersAfterUpdate[0]
+  expect(playersAfterUpdate[0].score).toEqual(30)
+
 });
 
 it('should update player list - add player', () => {
@@ -34,8 +33,9 @@ it('should update player list - remove player', () => {
   const appComponent = shallow(<App />);
 
   const onPlayerRemove = appComponent.find(PlayersList).prop('onPlayerRemove');
-  const players = appComponent.state('players');
-  onPlayerRemove(players);
-  expect(players.length).toEqual(1);
+
+  expect(appComponent.state('players').length).toEqual(2);
+  onPlayerRemove(0);
+  expect(appComponent.state('players').length).toEqual(1);
 
 });
